@@ -27,5 +27,14 @@
   <% end %>
 </div>
 
-<%= link_to 'Back', restaurants_path %> |
-<%= link_to 'Créer une review', new_restaurant_review_path(@restaurant) %> |
+
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
+
+<%= link_to 'Back', restaurants_path %>
+
+<%#= link_to 'Afficher les reviews', restaurant_review_path(@restaurant) %>
